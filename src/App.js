@@ -11,15 +11,14 @@ function App() {
   }, []);
 
   async function getTodos() {
-    var response = '{"number of todos": 3, "number complete": 1, "number incomplete": 2,' +
-    '"todos": [' +
-    '{"id": 1, "title": "Todo Number 1", "description": "Description 1", "status": true},' +
-    '{"id": 2, "title": "Todo Number 2", "description": "Description 2", "status": false},' + 
-    '{"id": 3, "title": "Todo Number 3", "description": "Description 3", "status": false}' + 
-    ']}';
+    
+    const response = await fetch(`http://127.0.0.1:8000/retrieve/`);
+    const data = await response.json();
+    setTodos(data.todos);
+    
+
   
-  var data =  JSON.parse(response);
-  setTodos(data.todos);
+   
 
 
   }

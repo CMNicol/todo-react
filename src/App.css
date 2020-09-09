@@ -1,1 +1,19 @@
+.TodoListItem {
+    border: 1px solid black;
+    height: 150px;
+    width: 400px;
+    margin-top: 10px;
+}
 
+.Row {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+}
+
+.AddTodo {
+    border: 1px solid black;
+    height: 150px;
+    width: 400px;
+    margin-left: 100px;
+}

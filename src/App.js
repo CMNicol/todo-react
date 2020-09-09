@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Todo from './Todo.js';
 import AddTodo from './AddTodo.js';
 import './App.css';
+import TodoModel from './TodoModel.js';
 
 
 const App = () => {
@@ -15,8 +16,15 @@ const App = () => {
   async function getTodos() {
     const response = await fetch(`http://127.0.0.1:8000/retrieve/`);
     const data = await response.json();
-    setTodos(data.todos);
+    
+    var todoList = [];
+    data.todos.forEach(
+      (item) => {todoList.push(new TodoModel(item.title, item.description, item.status))}
+    );
+    setTodos(todoList);
   }
+
+
 
   return (
     <div>

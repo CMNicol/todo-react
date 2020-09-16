@@ -1,12 +1,18 @@
 import React from 'react';
+import './App.css'
 
 
-const Todo = ({title, description}) => {
+const Todo = ({title, description, status}) => {
     return (
-        <div>
-            <h2>{title}</h2>
-            <p>{description}</p>
-        </div>
+       
+            <div className="TodoListItem">
+                <h2>Title: {title}</h2>
+                <p>Description: {description}</p>
+                <p>Status: {status}</p>
+            </div>
+            
+       
+        
     );
 }
 

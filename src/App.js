@@ -13,6 +13,9 @@ const App = () => {
     getTodos();
   }, []);
 
+  const [newTodo, setNewTodo] = useState(new TodoModel());
+  const [titleInputText, setTitleInputText] = useState("");
+
   async function getTodos() {
     const response = await fetch(`http://127.0.0.1:8000/retrieve/`);
     const data = await response.json();
@@ -36,7 +39,7 @@ const App = () => {
           </div>
 
           <div>
-            <AddTodo />
+            <AddTodo titleInputText={titleInputText} setTitleInputText={setTitleInputText}/>
           </div>
 
       </div>
